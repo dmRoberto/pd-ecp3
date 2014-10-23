@@ -6,6 +6,20 @@ import es.upm.miw.pd.ecp3.solitaire.models.DAO.UserDAO;
 
 public class MemDAOFactory extends DAOFactory {
 
+	private static MemDAOFactory instance;
+
+	private MemDAOFactory() {
+
+	}
+
+	public static MemDAOFactory getInstance() {
+		if (instance == null) {
+			return new MemDAOFactory();
+		} else {
+			return instance;
+		}
+	}
+
 	@Override
 	public UserDAO getUserDAO() {
 		return new MemUserDAO();
